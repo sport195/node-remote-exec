@@ -29,6 +29,8 @@ options is the connection options object used for [ssh2](https://github.com/mscd
 - the **afterEach** key takes a callback function run for each host after commands are run or when an error is encountered (passed host, commands, params, and err objects)
 - **stdout** and/or **stderr** can be specified to change where output from the remote hosts is sent
 
+Command options such as `env`, `pty`, and `x11` can also be specified in the options object and will be passed with the command. Refer to the documentation in [ssh2](https://github.com/mscdex/ssh2) for details.
+
 ## examples
 
 ### basic
