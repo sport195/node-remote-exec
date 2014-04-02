@@ -95,8 +95,14 @@ function RemoteExec(hosts, commands, options, cb) {
         done(new Error('Missing parameter: ' + missingParam[0]));
       }
 
+      // get command params
+      var execParams = {};
+      execParams.env = options.env;
+      execParams.pty = options.pty;
+      execParams.x11 = options.x11;
+
       // run the current command
-      connection.exec(command, function(err, stream){
+      connection.exec(command, execParams, unction(err, stream){
         if (err) done(err);
         
         // forward output to specified stream based on extended (null || stderr)
